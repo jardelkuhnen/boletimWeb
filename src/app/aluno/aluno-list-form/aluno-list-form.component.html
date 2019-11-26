@@ -1,0 +1,21 @@
+<div class="container lista-alunos" fxLayout='column' fxLayoutGap='8px'>
+
+  <mat-card-header fxFlex="30">
+    <h3>Listagem de Alunos </h3>
+  </mat-card-header>  
+  <mat-card-actions>
+        <div class="container">
+          <button mat-raised-button color="primary" routerLink="0/aluno" >Novo</button>
+        </div>
+    </mat-card-actions>
+
+  <div *ngFor='let aluno of alunos'>
+    <mat-card routerLink="{{aluno.id}}/aluno">
+      {{ aluno.name }}
+    </mat-card>
+  </div>
+  
+  <div *ngIf='!alunos'>
+    <span fxLayoutAlign='center' class="valida-aluno">Não há alunos cadastrados!</span>
+  </div>
+</div>
