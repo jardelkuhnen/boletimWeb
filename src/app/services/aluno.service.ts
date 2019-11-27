@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+
 
 import { Aluno } from '../models/Aluno';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -19,14 +21,18 @@ export class AlunoService {
   }
 
   addAluno(aluno: Aluno) {
-    return this.http.post<Aluno>(this.API.SERVICE_ALUNO, JSON.stringify(aluno));
+    return this.http.post<Aluno>(this.API.SERVICE_ALUNO, aluno);
   }
 
   updateAluno(aluno: Aluno) {
-    return this.http.put<Aluno>(this.API.SERVICE_ALUNO, JSON.stringify(aluno));
+    return this.http.put<Aluno>(this.API.SERVICE_ALUNO, aluno);
   }
 
-  deleteAluno(id: number) {
-    return this.http.delete(this.API.SERVICE_ALUNO + id);
+  deleteAluno(alunoId: number) {
+    this.http.delete(this.API.SERVICE_ALUNO + '/' + alunoId).subscribe(r => console.log(r));
+  }
+
+  getAluno(id: number): Observable<Aluno> {
+    return this.http.get<Aluno>(this.API.SERVICE_ALUNO + '/'+ id);
   }
 }
