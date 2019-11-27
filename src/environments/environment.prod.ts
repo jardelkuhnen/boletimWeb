@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+
+  SERVICE_ALUNO: 'http:localhost:8080/aluno'
+
 };

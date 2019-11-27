@@ -1,18 +1,30 @@
 <div class="container">
+
   <form [formGroup]='formAluno' fxLayoutAlign='center center'>
+
+    
+    <div class="form" fxFlex fxLayout='column' fxFlex.gt-sm='50%'>
+      <br>
       
-    <table class="width-full" cellspacing="0"><tr>
-    
-      <td><mat-form-field class="width-full">
-        <input matInput placeholder="First name">
-    
-      </mat-form-field></td>
-    
-      <td><mat-form-field class="width-full">
-        <input matInput placeholder="Long Last Name That Will Be Truncated">
-      </mat-form-field></td>
+      <mat-form-field>
+          <input formControlName='ra' matInput placeholder="RA do Aluno">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input formControlName='nome' matInput placeholder="Nome do Aluno">
+      </mat-form-field>
+     
+      <mat-form-field>
+          <input formControlName='sobreNome' matInput placeholder="Sobrenome do Aluno">
+      </mat-form-field>
 
-    </tr></table> 
-
+      <mat-card-actions>
+        <div class="container">
+          <button mat-raised-button color='primary' (click)='save()'>Salvar</button>
+          <button mat-raised-button color="dark" routerLink="aluno" >Voltar</button>
+        </div>
+    </mat-card-actions>
+    </div>
+  
   </form>
 </div>

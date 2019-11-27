@@ -18,7 +18,7 @@ export class AlunoListFormComponent implements OnInit {
   }
 
   private loadAlunos() {
-    this.alunos = this.alunoService.getAlunos();
+    this.alunoService.getAlunos().subscribe(dados => this.alunos = dados);
   }
 
 }

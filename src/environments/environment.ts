@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  SERVICE_ALUNO: 'http:localhost:8080/aluno'
 };
 
 /*

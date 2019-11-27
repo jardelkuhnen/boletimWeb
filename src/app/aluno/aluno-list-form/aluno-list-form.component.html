@@ -5,13 +5,13 @@
   </mat-card-header>  
   <mat-card-actions>
         <div class="container">
-          <button mat-raised-button color="primary" routerLink="0/aluno" >Novo</button>
+          <button mat-raised-button color="primary" routerLink="id/aluno" >Novo</button>
         </div>
-    </mat-card-actions>
+  </mat-card-actions>
 
   <div *ngFor='let aluno of alunos'>
     <mat-card routerLink="{{aluno.id}}/aluno">
-      {{ aluno.name }}
+      {{ aluno.nome }}
     </mat-card>
   </div>
   
