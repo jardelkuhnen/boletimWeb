@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aluno', loadChildren: './aluno/aluno.module#AlunoModule' },
-  { path: 'professor', component: HomeComponent },
+  { path: 'professor', loadChildren: './professor/professor.module#ProfessorModule' },
   { path: 'turma', component: HomeComponent },
   { path: 'materia', component: HomeComponent },
   

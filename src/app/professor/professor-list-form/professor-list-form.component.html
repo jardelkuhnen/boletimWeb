@@ -1,0 +1,40 @@
+<div class="container lista-professores" fxLayout='column' fxLayoutGap='8px'>
+
+    <mat-toolbar>Listagem de Professores</mat-toolbar>
+
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" routerLink="id/aluno" >Novo</button>
+    </div>
+
+
+    <table *ngIf='professores' mat-table [dataSource]="professores.content" class="mat-elevation-z8">
+            
+            
+            <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let professor"> {{professor.nome}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="sobreNome">
+            <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
+            <td mat-cell *matCellDef="let professor"> {{professor.sobreNome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
+                <mat-cell *matCellDef="let row" >
+                    <button mat-button routerLink="{{row.id}}/professor">Editar</button>
+                    <button mat-button (click)="excluir(row.id)">Excluir</button>
+                </mat-cell>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <div *ngIf='!alunos'>
+        <span fxLayoutAlign='center' class="valida-aluno">Não há professores cadastrados!</span>
+    </div>
+
+</div>

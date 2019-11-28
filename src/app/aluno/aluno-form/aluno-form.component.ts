@@ -52,7 +52,7 @@ export class AlunoFormComponent implements OnInit {
 
   private getAluno(alunoId) {
 
-    if (!alunoId) {
+    if (alunoId == 'id') {
       this.formAluno = this.form.group({
         id: '',
         ra: '',
@@ -63,8 +63,16 @@ export class AlunoFormComponent implements OnInit {
       return;
     }
 
-    this.alunoService.getAluno(alunoId).subscribe(dado => this.aluno = dado), error => this.showError(error);
-    console.log(this.aluno);
+    this.alunoService.getAluno(alunoId).subscribe(dado => {
+        console.log(dado);
+
+        this.formAluno = this.form.group({
+          id: dado.id,
+          ra: dado.ra,
+          nome: dado.nome,
+          sobreNome: dado.sobreNome
+        });
+    }, error => this.showError(error));
 
     this.formAluno = this.form.group({
       id: '',
@@ -75,7 +83,6 @@ export class AlunoFormComponent implements OnInit {
 
 
   }
-
 
   showError(message: string) {
     setTimeout(() => this.messages.open(message, 'Close', { duration: 4000 }), 1);

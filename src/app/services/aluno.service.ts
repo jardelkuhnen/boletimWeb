@@ -29,7 +29,7 @@ export class AlunoService {
   }
 
   deleteAluno(alunoId: number) {
-    this.http.delete(this.API.SERVICE_ALUNO + '/' + alunoId).subscribe(r => console.log(r));
+    return this.http.delete(this.API.SERVICE_ALUNO + '/' + alunoId);
   }
 
   getAluno(id: number): Observable<Aluno> {

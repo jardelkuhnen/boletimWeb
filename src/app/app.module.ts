@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { MatTableModule } from '@angular/material';
     MaterialUIModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

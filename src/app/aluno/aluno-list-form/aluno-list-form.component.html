@@ -1,25 +1,24 @@
 <div class="container lista-alunos" fxLayout='column' fxLayoutGap='8px'>
 
-  <div>
-    <mat-card-header fxFlex="30">
-      <h3>Listagem de Alunos </h3>
-    </mat-card-header>  
-  </div>
-  
+  <mat-toolbar>Listagem de Alunos</mat-toolbar>
+
   <div class="example-button-row">
     <button mat-raised-button color="primary" routerLink="id/aluno" >Novo</button>
   </div>
 
-  
   <table *ngIf='alunos' mat-table [dataSource]="alunos.content" class="mat-elevation-z8">
         
-        <!-- Name Column -->
+
+        <ng-container matColumnDef="ra">
+          <th mat-header-cell *matHeaderCellDef> RA </th>
+          <td mat-cell *matCellDef="let aluno"> {{aluno.ra}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef> Nome </th>
           <td mat-cell *matCellDef="let aluno"> {{aluno.nome}} </td>
         </ng-container>
-      
-        <!-- Weight Column -->
+        
         <ng-container matColumnDef="sobreNome">
           <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
           <td mat-cell *matCellDef="let aluno"> {{aluno.sobreNome}} </td>
